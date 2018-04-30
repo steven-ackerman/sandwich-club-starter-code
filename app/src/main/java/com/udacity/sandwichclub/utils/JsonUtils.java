@@ -20,9 +20,9 @@ public class JsonUtils {
         Sandwich sandwich = null;
         try {
             //Parses each appropriate string from the json string.
-            JSONObject sandwichJSON = new JSONObject(json);//1.
+            JSONObject sandwichJSON = new JSONObject(json);
             //Gets the all the object details and mainName from the JSON string.
-            JSONObject name = sandwichJSON.getJSONObject("name");//2
+            JSONObject name = sandwichJSON.getJSONObject("name");
             String mainName = name.getString("mainName");
 
             //Creates a JSON Array of AKA & Ingredients data. Calls Method to convert to List<String>.

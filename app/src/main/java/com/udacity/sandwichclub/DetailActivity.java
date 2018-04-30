@@ -14,6 +14,15 @@ import com.squareup.picasso.Picasso;
 import com.udacity.sandwichclub.model.Sandwich;
 import com.udacity.sandwichclub.utils.JsonUtils;
 
+/***
+ * Resources and Credits:
+ * String Builder Documentation:
+ * https://docs.oracle.com/javase/7/docs/api/java/lang/StringBuilder.html
+ *
+ * Complete Help from Slack Threads:
+ * https://gwgnanodegrees.slack.com/threads/convo/CACEDSDJP-1524935029.000037/
+ */
+
 public class DetailActivity extends AppCompatActivity {
 
     public static final String EXTRA_POSITION = "extra_position";
@@ -115,8 +124,7 @@ public class DetailActivity extends AppCompatActivity {
         } else {
             StringBuilder akaBuilder = new StringBuilder();
             for (int i = 0; i < alsoKnownAsList.size(); i++) {
-                akaBuilder
-                        .append(alsoKnownAsList.get(i));
+                akaBuilder.append(alsoKnownAsList.get(i));
                 if (i != alsoKnownAsList.size() - 1)
                     akaBuilder.append('\n');
             }
