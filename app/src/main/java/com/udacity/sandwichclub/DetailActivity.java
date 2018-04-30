@@ -84,17 +84,18 @@ public class DetailActivity extends AppCompatActivity {
         if (ingredientsList.isEmpty()) {
             ingredients = getString(R.string.unknown_ingredients);
         } else {
-            //Builds a string from the characters:
+
+            //Builds a string from the chars:
             StringBuilder ingredientString = new StringBuilder();
             for (int i = 0; i < ingredientsList.size(); i++) {
-                ingredientString
-                        .append(ingredientsList.get(i));
+                ingredientString.append(ingredientsList.get(i));
                 if (i != ingredientsList.size() - 1) {
                     ingredientString.append('\n');
                 }//End if.
             }//End for loop.
             ingredients = ingredientString.toString();
         }
+        //Sets Text with the ingedients String put together by String Builder.
         ingredientsTextView.setText(ingredients);
 
         TextView placeOfOriginTextView = findViewById(R.id.origin_tv);
@@ -110,6 +111,7 @@ public class DetailActivity extends AppCompatActivity {
         List<String> alsoKnownAsList = sandwich.getAlsoKnownAs();
         if (alsoKnownAsList.isEmpty()) {
             alsoKnownAs = getString(R.string.no_aliases);
+
         } else {
             StringBuilder akaBuilder = new StringBuilder();
             for (int i = 0; i < alsoKnownAsList.size(); i++) {
