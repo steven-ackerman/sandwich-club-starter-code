@@ -14,7 +14,7 @@
     <string name="detail_error_message">Sandwich data not available</string>
     <string name="no_description">No description details</string>
     <string name="unknown_ingredients">Ingredients details not available</string>
-    <string name="unknown_origin">Place of origin: Unknown</string>
+    <string name="unknown_origin">Origin is Unknown</string>
     <string name="no_aliases">No aliases</string>
 
     <string-array name="sandwich_names">

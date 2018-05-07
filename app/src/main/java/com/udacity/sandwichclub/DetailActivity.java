@@ -8,6 +8,7 @@ import android.widget.Toast;
 import android.widget.TextView;
 
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 
 import com.squareup.picasso.Picasso;
@@ -28,11 +29,6 @@ public class DetailActivity extends AppCompatActivity {
     public static final String EXTRA_POSITION = "extra_position";
     private static final int DEFAULT_POSITION = -1;
 
-    /**Class Variables **/
-    TextView mAlsoKnownAs;
-    TextView mPlaceOfOrigin;
-    TextView mDescription;
-    TextView mIngredients;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,8 +79,8 @@ public class DetailActivity extends AppCompatActivity {
         String description = sandwich.getDescription();
         if (description == null || description.equals("")) {
             description = getString(R.string.no_description);
-        }else
-        descriptionTextView.setText(description);
+        } else
+            descriptionTextView.setText(description);
 
         //Sets the TexView, Checks for empty List & Creates
         TextView ingredientsTextView = findViewById(R.id.ingredients_tv);
@@ -97,15 +93,20 @@ public class DetailActivity extends AppCompatActivity {
             //Builds a string from the chars:
             StringBuilder ingredientString = new StringBuilder();
             for (int i = 0; i < ingredientsList.size(); i++) {
-                ingredientString.append(ingredientsList.get(i));
+                ingredientsTextView.append(ingredientsList.get(i)+"\n");
                 if (i != ingredientsList.size() - 1) {
                     ingredientString.append('\n');
                 }//End if.
             }//End for loop.
+
             ingredients = ingredientString.toString();
+
         }
         //Sets Text with the ingedients String put together by String Builder.
-        ingredientsTextView.setText(ingredients);
+        //ingredientsTextView.setText(ingredients);
+        ingredientsTextView.append(ingredients);
+        int i =0;
+//        if (i != ingredientsList.size()-1) { ingredientsTextView.append(ingredients);}
 
         TextView placeOfOriginTextView = findViewById(R.id.origin_tv);
         String placeOfOrigin = sandwich.getPlaceOfOrigin();
@@ -123,7 +124,7 @@ public class DetailActivity extends AppCompatActivity {
 
         } else {
             StringBuilder akaBuilder = new StringBuilder();
-            for (int i = 0; i < alsoKnownAsList.size(); i++) {
+            for (i = 0; i < alsoKnownAsList.size(); i++) {
                 akaBuilder.append(alsoKnownAsList.get(i));
                 if (i != alsoKnownAsList.size() - 1)
                     akaBuilder.append('\n');
